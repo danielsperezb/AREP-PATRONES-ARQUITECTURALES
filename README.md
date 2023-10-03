@@ -121,3 +121,64 @@ docker rm $(docker ps -a -q)
 docker rmi $(docker images -q)
 ```
 
+
+
+##  DOCKER DE MANERA LOCAL
+
+1) Abrir docker en tu maquina local:
+ 
+2)  Ejecutar dentro del repositorio (carpeta) : LogRoundRobin.
+
+```bash
+docker-compose up -d
+```
+
+## FUNCIONAMINETO LOCAL Y SU TRANSFORMACION A DOCKER DE MANERA LOCAL
+
+Al arrancar este laboratorio, debia desde mi IDLE preferido que es NETBEANS arrancar LogRoundRobin, luego abrir 3 cmd para poder abrir nuestras 3 instancias de LogService:
+
+```bash
+java -cp "target/classes;target/dependency/*" co.edu.escuelaing.logservice.LogService
+```
+
+```bash
+SET PORT=4569
+```
+
+```bash
+java -cp "target/classes;target/dependency/*" co.edu.escuelaing.logservice.LogService
+```
+
+```bash
+SET PORT=4569
+```
+
+```bash
+java -cp "target/classes;target/dependency/*" co.edu.escuelaing.logservice.LogService
+```
+
+Creamos el archivo: docker-compose.yml (Esta adentro de LogRoundRobin) para evitar estas ejecuciones repetitivas y ademas cambiamos la variable LOG_SERVICES en la clase: HttpRemoteCaller de:
+
+ private static final String[] LOG_SERVICES = new String[]{
+    "http://localhost:4568/logservice",
+    "http://localhost:4569/logservice",
+    "http://localhost:4570/logservice"
+};
+
+actualizado a ->
+
+ private static final String[] LOG_SERVICES = new String[]{
+    "http://firstlogservicecontainer:6000/logservice",
+    "http://secondlogservicecontainer:6000/logservice",
+    "http://thirdlogservicecontainer:6000/logservice"
+};
+
+Donde ahora se pone los contenedores y el puerto de ambiente, para su correcto funcionamineto al ejecutar el archivo docker-compose.yml
+
+#### Creacion de imagenes de docker hub para poder llamarlas en el docker-compose.yml y tambien funcional a la hora de hacerlo en  AWS
+
+![image](https://github.com/danielsperezb/AREP-PATRONES-ARQUITECTURALES/assets/101849347/21ed7698-193f-437c-b6ba-55a4b47a655b)
+
+
+
+
