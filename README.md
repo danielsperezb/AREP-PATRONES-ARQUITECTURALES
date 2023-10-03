@@ -66,3 +66,14 @@ f) docker run -d -p 27017:27017 --name db --network arep_network danielsperezb/m
 
 ![image](https://github.com/danielsperezb/AREP-PATRONES-ARQUITECTURALES/assets/101849347/34d5420d-3152-43fb-bc9e-3842d8cd1589)
 
+#### Notas Adiconales:
+
+1) Recuerda en la parte de "Security" agregar los puertos necesairos que se van a usar:
+
+![image](https://github.com/danielsperezb/AREP-PATRONES-ARQUITECTURALES/assets/101849347/2d04fefd-16bb-47c7-97a5-7037bf872b52)
+
+2) Copiamos la "Public IPv4 DNS"
+
+![image](https://github.com/danielsperezb/AREP-PATRONES-ARQUITECTURALES/assets/101849347/25a35dba-cc15-49ea-99c8-cda967d53fcb)
+
+
