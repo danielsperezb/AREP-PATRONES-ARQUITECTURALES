@@ -122,7 +122,7 @@ docker rmi $(docker images -q)
 ```
 
 
-## Docker de Manera Local para LogRoundRobin
+## Docker de Manera Local
 
 ### Instrucciones para Docker en tu Máquina Local:
 
