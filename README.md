@@ -33,6 +33,8 @@ La aplicación web APP-LB-RoundRobin consta de un cliente web que incluye un cam
     a) Instale Docker
       ```bash
       sudo yum update -y
+      ```
+       ```bash
       sudo yum install docker
       ```
     b) Inicie el servicio de docker
@@ -100,3 +102,17 @@ La aplicación web APP-LB-RoundRobin consta de un cliente web que incluye un cam
     ![image](https://github.com/danielsperezb/AREP-PATRONES-ARQUITECTURALES/assets/101849347/25a35dba-cc15-49ea-99c8-cda967d53fcb)
 
    Y finalmente buscamos en nuestro navegador: ec2-44-207-5-41.compute-1.amazonaws.com:35000
+
+#### Adicionales:
+
+a) Si quieres eliminar los contenedores y imagenes en tu docker en la maquina virtual 
+```bash
+docker stop $(docker ps -a -q)
+```
+```bash
+docker rm $(docker ps -a -q)
+```
+```bash
+docker rmi $(docker images -q)
+```
+
