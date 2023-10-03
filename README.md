@@ -98,3 +98,5 @@ La aplicación web APP-LB-RoundRobin consta de un cliente web que incluye un cam
 2) Copiamos la "Public IPv4 DNS"
 
     ![image](https://github.com/danielsperezb/AREP-PATRONES-ARQUITECTURALES/assets/101849347/25a35dba-cc15-49ea-99c8-cda967d53fcb)
+
+   Y finalmente buscamos en nuestro navegador: ec2-44-207-5-41.compute-1.amazonaws.com:35000
