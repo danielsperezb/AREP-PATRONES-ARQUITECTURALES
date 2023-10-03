@@ -134,7 +134,7 @@ docker rmi $(docker images -q)
     docker-compose up -d
     ```
 
-### Funcionamiento Local y Transformación a Docker de Manera Local
+### Funcionamiento Local sin Docker y Transformación a Docker de Manera Local
 
 Al iniciar este laboratorio, sigue los pasos a continuación:
 
