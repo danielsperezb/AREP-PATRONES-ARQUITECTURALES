@@ -18,6 +18,8 @@ La aplicación web APP-LB-RoundRobin consta de un cliente web que incluye un cam
 
 ## AWS EC2
 
+Video de despliegue funcionando: https://www.youtube.com/watch?v=qpmajQlzmPY
+
 ### Pasos:
 
 1) Ingresamos a la carpeta donde tenemos nuestra llave generada:
@@ -123,6 +125,8 @@ docker rmi $(docker images -q)
 
 
 ## Docker de Manera Local
+
+Video de despliegue funcionando: https://www.youtube.com/watch?v=WKgpSyeWk1o
 
 ### Instrucciones para Docker en tu Máquina Local:
 
