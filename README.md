@@ -122,63 +122,69 @@ docker rmi $(docker images -q)
 ```
 
 
+## Docker de Manera Local para LogRoundRobin
 
-##  DOCKER DE MANERA LOCAL
+### Instrucciones para Docker en tu Máquina Local:
 
-1) Abrir docker en tu maquina local:
- 
-2)  Ejecutar dentro del repositorio (carpeta) : LogRoundRobin.
+1. Abrir Docker en tu máquina local.
 
-```bash
-docker-compose up -d
-```
+2. Ejecutar el siguiente comando dentro del repositorio (carpeta) LogRoundRobin:
 
-## FUNCIONAMINETO LOCAL Y SU TRANSFORMACION A DOCKER DE MANERA LOCAL
+    ```bash
+    docker-compose up -d
+    ```
 
-Al arrancar este laboratorio, debia desde mi IDLE preferido que es NETBEANS arrancar LogRoundRobin, luego abrir 3 cmd para poder abrir nuestras 3 instancias de LogService:
+### Funcionamiento Local y Transformación a Docker de Manera Local
 
-```bash
-java -cp "target/classes;target/dependency/*" co.edu.escuelaing.logservice.LogService
-```
+Al iniciar este laboratorio, sigue los pasos a continuación:
 
-```bash
-SET PORT=4569
-```
+1. Desde tu IDE preferido, como NetBeans, inicia LogRoundRobin.
 
-```bash
-java -cp "target/classes;target/dependency/*" co.edu.escuelaing.logservice.LogService
-```
+2. Abre 3 terminales (cmd) para lanzar 3 instancias de LogService:
 
-```bash
-SET PORT=4569
-```
+    ```bash
+    java -cp "target/classes;target/dependency/*" co.edu.escuelaing.logservice.LogService
+    ```
 
-```bash
-java -cp "target/classes;target/dependency/*" co.edu.escuelaing.logservice.LogService
-```
+    ```bash
+    SET PORT=4569
+    ```
 
-Creamos el archivo: docker-compose.yml (Esta adentro de LogRoundRobin) para evitar estas ejecuciones repetitivas y ademas cambiamos la variable LOG_SERVICES en la clase: HttpRemoteCaller de:
+    ```bash
+    java -cp "target/classes;target/dependency/*" co.edu.escuelaing.logservice.LogService
+    ```
 
- private static final String[] LOG_SERVICES = new String[]{
-    "http://localhost:4568/logservice",
-    "http://localhost:4569/logservice",
-    "http://localhost:4570/logservice"
-};
+    ```bash
+    SET PORT=4569
+    ```
 
-actualizado a ->
+    ```bash
+    java -cp "target/classes;target/dependency/*" co.edu.escuelaing.logservice.LogService
+    ```
 
- private static final String[] LOG_SERVICES = new String[]{
-    "http://firstlogservicecontainer:6000/logservice",
-    "http://secondlogservicecontainer:6000/logservice",
-    "http://thirdlogservicecontainer:6000/logservice"
-};
+3. Crea el archivo `docker-compose.yml` dentro de LogRoundRobin para evitar ejecuciones repetitivas. También, actualiza la variable `LOG_SERVICES` en la clase `HttpRemoteCaller` de:
 
-Donde ahora se pone los contenedores y el puerto de ambiente, para su correcto funcionamineto al ejecutar el archivo docker-compose.yml
+    ```java
+    private static final String[] LOG_SERVICES = new String[]{
+        "http://localhost:4568/logservice",
+        "http://localhost:4569/logservice",
+        "http://localhost:4570/logservice"
+    };
+    ```
 
-#### Creacion de imagenes de docker hub para poder llamarlas en el docker-compose.yml y tambien funcional a la hora de hacerlo en  AWS
+    a:
 
-![image](https://github.com/danielsperezb/AREP-PATRONES-ARQUITECTURALES/assets/101849347/21ed7698-193f-437c-b6ba-55a4b47a655b)
+    ```java
+    private static final String[] LOG_SERVICES = new String[]{
+        "http://firstlogservicecontainer:6000/logservice",
+        "http://secondlogservicecontainer:6000/logservice",
+        "http://thirdlogservicecontainer:6000/logservice"
+    };
+    ```
 
+    donde ahora se utilizan los contenedores y el puerto de ambiente para su correcto funcionamiento al ejecutar `docker-compose.yml`.
 
+### Creación de Imágenes Docker Hub
 
+![Docker Hub Images](https://github.com/danielsperezb/AREP-PATRONES-ARQUITECTURALES/assets/101849347/21ed7698-193f-437c-b6ba-55a4b47a655b)
 
