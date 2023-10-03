@@ -186,5 +186,7 @@ Al iniciar este laboratorio, sigue los pasos a continuación:
 
 ### Creación de Imágenes Docker Hub
 
+Para poder llamarlas en el docker-compose.yml y tambien funcional a la hora de hacerlo en  AWS
+
 ![Docker Hub Images](https://github.com/danielsperezb/AREP-PATRONES-ARQUITECTURALES/assets/101849347/21ed7698-193f-437c-b6ba-55a4b47a655b)
 
