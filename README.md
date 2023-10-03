@@ -134,7 +134,16 @@ docker rmi $(docker images -q)
     docker-compose up -d
     ```
 
-    ![image](https://github.com/danielsperezb/AREP-PATRONES-ARQUITECTURALES/assets/101849347/77a8d003-acb4-4635-8413-266eeb8b0921)
+    ![image](https://github.com/danielsperezb/AREP-PATRONES-ARQUITECTURALES/assets/101849347/b99399bf-0447-45d3-8323-27e15044eb05)
+
+    Las imagenes y contenedores son creados sactifactoriamente:
+
+   ![image](https://github.com/danielsperezb/AREP-PATRONES-ARQUITECTURALES/assets/101849347/27a6aa45-84a7-4358-a60d-23a3f83fae3c)
+
+   Funcionamiento correcto: Abrir en FireFox: http://localhost:35000/
+
+   ![image](https://github.com/danielsperezb/AREP-PATRONES-ARQUITECTURALES/assets/101849347/02d67ff2-0dc2-4f69-a72b-9f4dcf202b5e)
+
 
 
 ### Funcionamiento Local sin Docker y Transformación a Docker de Manera Local
