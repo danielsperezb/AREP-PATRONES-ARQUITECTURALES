@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=\"UTF-8\">
+        <title>MENSAJERIA</title>
+        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+    </head>
+    <body>
+        <h1> MESSENGER AREP </h1>
+        <form action="/logservice">
+            <label for="message">Envia un mensaje: </label><br>
+            <input type="text" id="message" name="message" value="Mensaje"><br><br>
+            <input type="button" value="Submit" onclick="loadGetMsg()">
+        </form>
+
+        <div id= "getrespmsg"></div>
+
+        <script>
+            function loadGetMsg() {
+                let message = document.getElementById("message").value;
+                const xhttp = new XMLHttpRequest();
+                xhttp.onload = function () {
+                    document.getElementById("getrespmsg").innerHTML =
+                            this.responseText;
+                }
+                xhttp.open("GET", "/log?message=" + message);
+                xhttp.send();
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  firstlogservice:
+    image: danielsperezb/logservice
+    container_name: firstlogservicecontainer
+    ports:
+      - "35001:6000"
+    environment:
+      - PORT=6000
+
+  secondlogservice:
+    image: danielsperezb/logservice
+    container_name: secondlogservicecontainer
+    ports:
+      - "35002:6000"
+    environment:
+      - PORT=6000
+
+  thirdlogservice:
+    image: danielsperezb/logservice
+    container_name: thirdlogservicecontainer
+    ports:
+      - "35003:6000"
+    environment:
+      - PORT=6000
+
+  db:
+    image: danielsperezb/mongodb
+    container_name: db
+    volumes:
+      - mongodb:/data/db
+      - mongodb_config:/data/configdb
+    ports:
+      - 27017:27017
+    command: mongod
+
+volumes:
+  mongodb:
+  mongodb_config:
