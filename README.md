@@ -134,6 +134,9 @@ docker rmi $(docker images -q)
     docker-compose up -d
     ```
 
+    ![image](https://github.com/danielsperezb/AREP-PATRONES-ARQUITECTURALES/assets/101849347/77a8d003-acb4-4635-8413-266eeb8b0921)
+
+
 ### Funcionamiento Local sin Docker y Transformación a Docker de Manera Local
 
 Al iniciar este laboratorio, sigue los pasos a continuación:
