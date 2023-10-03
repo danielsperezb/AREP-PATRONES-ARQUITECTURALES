@@ -34,7 +34,8 @@ La aplicación web APP-LB-RoundRobin consta de un cliente web que incluye un cam
       ```bash
       sudo yum update -y
       ```
-       ```bash
+      
+      ```bash
       sudo yum install docker
       ```
     b) Inicie el servicio de docker
@@ -106,6 +107,10 @@ La aplicación web APP-LB-RoundRobin consta de un cliente web que incluye un cam
 #### Adicionales:
 
 a) Si quieres eliminar los contenedores y imagenes en tu docker en la maquina virtual 
+```bash
+docker network rm arep_network
+```
+
 ```bash
 docker stop $(docker ps -a -q)
 ```
