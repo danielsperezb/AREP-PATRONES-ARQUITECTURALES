@@ -52,16 +52,20 @@ La aplicación web APP-LB-RoundRobin consta de un cliente web que incluye un cam
 
 **Despliegue:** Se ejecuta en un contenedor Docker llamado `db` en el puerto 27017.
 
-## Flujo de Ejecución:
+### Flujo de Ejecución:
 
 1. El cliente envía un mensaje de registro al LogRoundRobin a través de una solicitud HTTP.
 2. El LogRoundRobin utiliza el HttpRemoteCaller para realizar una llamada remota a uno de los servicios de registro (LogService).
 3. El servicio de registro recibe el mensaje, lo almacena en MongoDB y devuelve los últimos 10 mensajes.
 4. El LogRoundRobin responde con los últimos 10 mensajes al cliente.
 
-## Consideraciones de AWS:
+### Consideraciones de AWS:
 
 - La red de Docker `arep_network` permite la comunicación entre los contenedores.
+
+## DIAGRAMA DE CLASES
+
+![image](https://github.com/danielsperezb/AREP-PATRONES-ARQUITECTURALES/assets/101849347/37697b54-fc22-4c13-a6b8-8407ba6948d3)
 
 
 ## AWS EC2
