@@ -18,6 +18,52 @@ La aplicación web APP-LB-RoundRobin consta de un cliente web que incluye un cam
 
 ![image](https://github.com/danielsperezb/AREP-PATRONES-ARQUITECTURALES/assets/101849347/f304a681-da9a-4939-ba41-495291e79a16)
 
+# Arquitectura
+
+## Microservicio de Registro Distribuido (LogRoundRobin):
+
+**Responsabilidad:** Proporciona un punto de entrada para recibir mensajes de registro y realiza llamadas remotas a los servicios de registro.
+
+**Implementación:** Utiliza el framework Spark para la creación de un servidor web. Se comunica con los servicios de registro distribuidos.
+
+**Despliegue:** Se ejecuta en un contenedor Docker llamado `roundrobincontainer` en el puerto 35000.
+
+## Cliente HTTP para Llamadas a Servicios de Registro Distribuidos (HttpRemoteCaller):
+
+**Responsabilidad:** Realiza llamadas HTTP remotas a servicios de registro distribuidos. En este caso, rota entre tres servicios de registro.
+
+**Implementación:** Utiliza la biblioteca `HttpURLConnection` de Java para realizar llamadas HTTP a los servicios remotos.
+
+**Despliegue:** No se ejecuta de forma independiente; se utiliza en conjunto con el servicio de registro distribuido.
+
+## Servicio de Registro Almacenando en MongoDB (LogService):
+
+**Responsabilidad:** Gestiona la recepción de mensajes de registro, almacena los mensajes en MongoDB y proporciona los últimos 10 mensajes.
+
+**Implementación:** Utiliza Spark para la creación de un servidor web y la biblioteca oficial de MongoDB para interactuar con la base de datos.
+
+**Despliegue:** Se ejecuta en tres instancias diferentes en contenedores Docker llamados `firstlogservicecontainer`, `secondlogservicecontainer` y `thirdlogservicecontainer` en los puertos 35001, 35002 y 35003, respectivamente.
+
+## Base de Datos MongoDB:
+
+**Responsabilidad:** Almacena los mensajes de registro en una base de datos MongoDB.
+
+**Implementación:** Utiliza la imagen oficial de MongoDB.
+
+**Despliegue:** Se ejecuta en un contenedor Docker llamado `db` en el puerto 27017.
+
+## Flujo de Ejecución:
+
+1. El cliente envía un mensaje de registro al LogRoundRobin a través de una solicitud HTTP.
+2. El LogRoundRobin utiliza el HttpRemoteCaller para realizar una llamada remota a uno de los servicios de registro (LogService).
+3. El servicio de registro recibe el mensaje, lo almacena en MongoDB y devuelve los últimos 10 mensajes.
+4. El LogRoundRobin responde con los últimos 10 mensajes al cliente.
+
+## Consideraciones de AWS:
+
+- La red de Docker `arep_network` permite la comunicación entre los contenedores.
+
+
 ## AWS EC2
 
 Video de despliegue funcionando: https://www.youtube.com/watch?v=qpmajQlzmPY
