@@ -258,3 +258,35 @@ Para poder llamarlas en el docker-compose.yml y tambien funcional a la hora de h
 
 ![Docker Hub Images](https://github.com/danielsperezb/AREP-PATRONES-ARQUITECTURALES/assets/101849347/21ed7698-193f-437c-b6ba-55a4b47a655b)
 
+
+## Construido con
+
+- [Maven](https://maven.apache.org/): Herramienta de administración de dependencias para proyectos Java.
+
+- [README](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2): Este README se creó siguiendo la plantilla de [PurpleBooth](https://gist.github.com/PurpleBooth).
+
+Además, el proyecto se construyó utilizando las siguientes tecnologías y herramientas:
+
+- **Java**: Lenguaje de programación principal.
+
+- **Spark Framework**: Utilizado para la creación del servidor web en el microservicio de registro distribuido.
+
+- **Docker**: Plataforma de contenerización utilizada para encapsular la aplicación y sus dependencias.
+
+- **MongoDB**: Sistema de gestión de bases de datos NoSQL utilizado en el servicio de registro almacenando en MongoDB.
+
+- **HttpURLConnection**: Biblioteca de Java para realizar llamadas HTTP en el cliente HTTP para llamadas a servicios de registro distribuidos.
+
+- **AWS**: Infraestructura en la nube utilizada para el despliegue de máquinas virtuales.
+
+## Autores
+
+- **Daniel Esteban Perez Bohorquez**
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE.md](LICENSE.md) para obtener más detalles.
+
+## Agradecimientos
+
+- Escuela Colombiana de Ingeniería
