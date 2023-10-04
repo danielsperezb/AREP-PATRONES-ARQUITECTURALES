@@ -18,9 +18,9 @@ La aplicación web APP-LB-RoundRobin consta de un cliente web que incluye un cam
 
 ![image](https://github.com/danielsperezb/AREP-PATRONES-ARQUITECTURALES/assets/101849347/f304a681-da9a-4939-ba41-495291e79a16)
 
-# Arquitectura
+## Arquitectura
 
-## Microservicio de Registro Distribuido (LogRoundRobin):
+### LogRoundRobin:
 
 **Responsabilidad:** Proporciona un punto de entrada para recibir mensajes de registro y realiza llamadas remotas a los servicios de registro.
 
@@ -28,7 +28,7 @@ La aplicación web APP-LB-RoundRobin consta de un cliente web que incluye un cam
 
 **Despliegue:** Se ejecuta en un contenedor Docker llamado `roundrobincontainer` en el puerto 35000.
 
-## Cliente HTTP para Llamadas a Servicios de Registro Distribuidos (HttpRemoteCaller):
+### HttpRemoteCaller:
 
 **Responsabilidad:** Realiza llamadas HTTP remotas a servicios de registro distribuidos. En este caso, rota entre tres servicios de registro.
 
@@ -36,7 +36,7 @@ La aplicación web APP-LB-RoundRobin consta de un cliente web que incluye un cam
 
 **Despliegue:** No se ejecuta de forma independiente; se utiliza en conjunto con el servicio de registro distribuido.
 
-## Servicio de Registro Almacenando en MongoDB (LogService):
+### LogService:
 
 **Responsabilidad:** Gestiona la recepción de mensajes de registro, almacena los mensajes en MongoDB y proporciona los últimos 10 mensajes.
 
@@ -44,7 +44,7 @@ La aplicación web APP-LB-RoundRobin consta de un cliente web que incluye un cam
 
 **Despliegue:** Se ejecuta en tres instancias diferentes en contenedores Docker llamados `firstlogservicecontainer`, `secondlogservicecontainer` y `thirdlogservicecontainer` en los puertos 35001, 35002 y 35003, respectivamente.
 
-## Base de Datos MongoDB:
+### Base de Datos MongoDB:
 
 **Responsabilidad:** Almacena los mensajes de registro en una base de datos MongoDB.
 
